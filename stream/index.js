@@ -3,7 +3,9 @@ const path = require("path");
 
 const filePath = path.join(__dirname, "files");
 
-const readStream = fs.createReadStream(`${filePath}/data.txt`,{encoding:"utf-8"});
+const readStream = fs.createReadStream(`${filePath}/data.txt`, {
+  encoding: "utf-8",
+});
 const writeStream = fs.createWriteStream(`${filePath}/new-data1.txt`);
 
 // console.log(readStream);
@@ -14,3 +16,9 @@ const writeStream = fs.createWriteStream(`${filePath}/new-data1.txt`);
 
 readStream.pipe(writeStream);
 
+fs.mkdir("./createDir", (err) => {
+  if (err) {
+    throw err;
+  }
+  console.log("directory created");
+});
