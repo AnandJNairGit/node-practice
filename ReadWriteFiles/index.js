@@ -18,7 +18,7 @@ fs.readFile(filePath, "utf-8", (err, data) => {
   }
 });
 
-//TO WRITE FILES
+// //TO WRITE FILES
 fs.writeFile(
   path.join(__dirname, "files", "anand.txt"),
   "hi this is Anand",
@@ -30,5 +30,19 @@ fs.writeFile(
     }
   }
 );
+
+// TO APPEND TO FILES
+fs.appendFile(
+    path.join(__dirname, "files", "anand.txt"),
+    "\nhi this is Anand",
+    (err) => {
+      if (err) {
+        console.error("the append error is-------->", err);
+      } else {
+        console.log("apppending complete");
+      }
+    }
+  );
+  
 
 console.log("Hello");
