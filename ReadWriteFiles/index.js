@@ -27,22 +27,34 @@ fs.writeFile(
       console.error("the write error is-------->", err);
     } else {
       console.log("writing complete");
+
+      // TO APPEND TO FILES INSIDE WRITE CALLBACK
+      fs.appendFile(
+        path.join(__dirname, "files", "anand.txt"),
+        "\nhi this is Anand",
+        (err) => {
+          if (err) {
+            console.error("the append error is-------->", err);
+          } else {
+            console.log("apppending complete");
+
+            // TO RENAME FILES INSIDE APPEND CALLBACK
+            fs.rename(
+              path.join(__dirname, "files", "anand.txt"),
+              path.join(__dirname, "files", "anand_RENAME.txt"),
+              (err) => {
+                if (err) {
+                  console.error("the append error is-------->", err);
+                } else {
+                  console.log("apppending complete");
+                }
+              }
+            );
+          }
+        }
+      );
     }
   }
 );
-
-// TO APPEND TO FILES
-fs.appendFile(
-    path.join(__dirname, "files", "anand.txt"),
-    "\nhi this is Anand",
-    (err) => {
-      if (err) {
-        console.error("the append error is-------->", err);
-      } else {
-        console.log("apppending complete");
-      }
-    }
-  );
-  
 
 console.log("Hello");
