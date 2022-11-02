@@ -12,5 +12,8 @@
     "url": "git@AnandJNairGit:AnandJNairGit/node-practice.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.29.3"
+  }
 }
