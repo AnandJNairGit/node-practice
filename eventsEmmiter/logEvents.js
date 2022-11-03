@@ -19,8 +19,10 @@ const logEvent = async (message) => {
   //dtat to append
   const appendData = `${uuid()}\t${message}`;
   try {
-    await fsPromise.appendFile(path.join(__dirname, "logFiles"), appendData);
+    await fsPromise.appendFile(path.join(__dirname, "logFiles","log.txt"), appendData);
   } catch (error) {
     console.log(error);
   }
 };
+
+module.exports = logEvent;
